@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>DaisyUI test</title>
 </head>
 
 <body>
@@ -33,51 +33,82 @@
     <div class="navbar-center hidden lg:flex">
       <ul class="menu menu-horizontal px-1 gap-2">
         <a class="btn" href="pood.html">
-         
+
           shop
         </a>
-        <button class="btn">
-          
-          Contact us
-        </button>
+        <a class="btn" href="contact.html"> Contact us</a>
       </ul>
     </div>
     <div class="navbar-end">
       <button class="btn">
-       
         cart
       </button>
     </div>
   </div>
-  <section class="bg-black min-h-[90vh] flex items-center px-6 lg:px-24 py-16">
-    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
-
-
-      <div class="text-white max-w-md">
-        <h1 class="text-3xl lg:text-4xl font-bold mb-3">
-          White shirt Chaos<br />logo
-        </h1>
-        <p class="text-sm mb-4 text-gray-300">
-          40,20 €
-        </p>
-        <p class="text-xs lg:text-sm text-gray-400 mb-6 leading-relaxed">
-          Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-          make
-          a type specimen book.
-        </p>
-        <button class="btn rounded-full px-8 bg-[#8b0000] hover:bg-[#a30000] border-none text-white">
-          Add to cart
-        </button>
-      </div>
-      <div class="card w-full max-w-sm bg-base-100 rounded-3xl shadow-2xl overflow-hidden">
-        <figure class="p-10">
-          <img src="/mug.png" alt="White Chaos logo shirt" class="w-full h-auto object-contain">
-        </figure>
-      </div>
-  </section>
-
-
+<form
+  class="space-y-5"
+  action="contact.php"
+  method="POST"
+>
+  <div class="form-control">
+    <label class="label" for="name">
+      <span class="label-text font-semibold">Your name</span>
+    </label>
+    <input
+      id="name"
+      name="name"
+      type="text"
+      placeholder="Enter your name"
+      class="input input-bordered w-full"
+      required
+    />
+  </div>
+  <div class="form-control">
+    <label class="label" for="email">
+      <span class="label-text font-semibold">Email</span>
+    </label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      placeholder="you@example.com"
+      class="input input-bordered w-full"
+      required
+    />
+  </div>
+  <div class="form-control">
+    <label class="label" for="subject">
+      <span class="label-text font-semibold">Subject</span>
+    </label>
+    <input
+      id="subject"
+      name="subject"
+      type="text"
+      placeholder="What is this about?"
+      class="input input-bordered w-full"
+    />
+  </div>
+  <div class="form-control">
+    <label class="label" for="message">
+      <span class="label-text font-semibold">Message</span>
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      class="textarea textarea-bordered w-full min-h-[140px]"
+      placeholder="Write your message here..."
+      required
+    ></textarea>
+  </div>
+  <div class="form-control mt-4">
+    <button
+      type="submit"
+      class="btn rounded-full px-10 bg-[#8b0000] hover:bg-[#a30000] border-none text-white mx-auto"
+    >
+      Send message
+    </button>
+  </div>
+</form>
   <footer class="bg-[#7a0d0d] text-white pt-16 pb-10 border-t-4 border-[#1e90ff]">
     <div class="flex justify-center mb-8">
       <img src="/logo.png" alt="Chaos Logo" class="h-20 w-auto" />

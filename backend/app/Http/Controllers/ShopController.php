@@ -9,7 +9,11 @@ class ShopController extends Controller
     public function index()
     {
         $products = Product::orderBy('created_at', 'desc')->get();
-
         return view('shop', compact('products'));
+    }
+
+    public function show(Product $product)
+    {
+        return view('product-detail', compact('product'));
     }
 }

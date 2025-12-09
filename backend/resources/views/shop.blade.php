@@ -47,9 +47,9 @@
     </div>
 
     <div class="navbar-end gap-3">
-      <button class="btn btn-sm bg-white text-black border-none shadow">
-        cart
-      </button>
+   <a href="{{ route('cart.index') }}" class="btn btn-sm bg-white text-black border-none shadow">
+  cart
+</a>
 
       @guest
         <a href="{{ route('admin.login') }}"
@@ -89,15 +89,28 @@
         <div class="flex flex-col items-center">
           <div
             class="card w-64 h-[360px] bg-base-100 rounded-3xl shadow-xl overflow-hidden flex items-center justify-center">
-            <figure class="p-10">
-              @if($product->image_path)
-                <img src="{{ asset('storage/'.$product->image_path) }}"
-                     alt="{{ $product->name }}"
-                     class="w-full h-auto object-contain" />
-              @else
-                <span class="text-gray-400 text-sm">No image</span>
-              @endif
-            </figure>
+            <a href="{{ route('product.show', $product) }}">
+  <div
+    class="card w-64 h-[360px] bg-base-100 rounded-3xl shadow-xl overflow-hidden flex items-center justify-center hover:scale-105 transition">
+    <figure class="p-10">
+      @if($product->image_path)
+        <img src="{{ asset('storage/'.$product->image_path) }}"
+             alt="{{ $product->name }}"
+             class="w-full h-auto object-contain" />
+      @endif
+    </figure>
+  </div>
+</a>
+
+<div class="mt-4 text-center text-white">
+  <a href="{{ route('product.show', $product) }}" class="font-semibold hover:underline">
+    {{ $product->name }}
+  </a>
+  <p class="text-sm text-gray-300">
+    {{ number_format($product->price, 2, ',', ' ') }} €
+  </p>
+  ...
+</div>
           </div>
 
           <div class="mt-4 text-center text-white">
@@ -143,10 +156,7 @@
 @endauth
       <form method="POST" action="{{ route('cart.add', $product) }}" class="mt-4">
   @csrf
-  <button
-    class="btn rounded-full px-8 bg-[#8b0000] hover:bg-[#a30000] border-none text-white">
-    Add to cart
-  </button>
+
 </form>
         </div>
       @empty
